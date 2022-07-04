@@ -28,6 +28,7 @@ if f is not None:
 
     cap = cv2.VideoCapture(tfile.name)
 
+    all_frames = []
     stframe = st.empty()
 
     while cap.isOpened():
@@ -63,7 +64,10 @@ if f is not None:
         if loss>0.000418:
             print('Abnormal Event Detected')
             cv2.putText(image,"Abnormal Event",(100,80),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),3)
-        stframe.image(image)
-            
+        all_frames.append(image)
+
+    for img in all_frames: 
+        stframe.image(img, channels='BGR')    
+
     cap.release()
     cv2.destroyAllWindows()
