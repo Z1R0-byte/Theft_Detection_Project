@@ -65,11 +65,7 @@ if f is not None:
         if loss>0.000418:
             print('Abnormal Event Detected')
             cv2.putText(image,"Abnormal Event",(100,80),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),3)
-        all_frames.append(image)
-
-    for img in all_frames:
-        stframe.image(img, channels='BGR')
-        time.sleep(0.3)
+        stframe.image(image, channels='BGR')
 
 
     cap.release()
