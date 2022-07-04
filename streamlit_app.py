@@ -62,7 +62,7 @@ if f is not None:
             print("none")
         if cv2.waitKey(10) & 0xFF==ord('q'):
             break
-        if loss>0.000418:
+        if loss>0.00042:
             print('Abnormal Event Detected')
             cv2.putText(image,"Abnormal Event",(100,80),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),3)
         stframe.image(image, channels='BGR')
