@@ -4,6 +4,7 @@ import tempfile
 from ModelSTAE import loadModel
 import numpy as np
 import imutils
+import time
 
 def mean_squared_loss(x1,x2):
     difference=x1-x2
@@ -66,8 +67,10 @@ if f is not None:
             cv2.putText(image,"Abnormal Event",(100,80),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),3)
         all_frames.append(image)
 
-    for img in all_frames: 
-        stframe.image(img, channels='BGR')    
+    for img in all_frames:
+        stframe.image(img, channels='BGR')
+        time.sleep(0.3)
+
 
     cap.release()
     cv2.destroyAllWindows()
